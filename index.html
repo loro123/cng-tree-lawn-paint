@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>C&amp;G's Tree, Lawn and Paint | We Do Everything</title>
+  <meta name="description" content="C&amp;G's Tree, Lawn and Paint — your local experts for tree work, landscaping, painting, junk removal, pressure washing, and more. Licensed &amp; insured. Free estimates. Any size job." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="C&amp;G's Tree, Lawn and Paint | We Do Everything" />
+  <meta property="og:description" content="Tree work, landscaping, painting, junk removal, pressure washing, and more. Licensed &amp; insured. Free estimates." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/tree-work.webp" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          maxWidth: {
+            'site': '1800px',
+          },
+          colors: {
+            'forest':  '#1F4E2C',
+            'forest-dark': '#163820',
+            'forest-light': '#2a6639',
+            'rust':    '#D97545',
+            'rust-dark': '#b85e32',
+            'charcoal': '#1e1e1e',
+            'offwhite': '#f5f3ef',
+          },
+          fontFamily: {
+            heading: ['Oswald', 'sans-serif'],
+            body:    ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Schema.org LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "C&G's Tree, Lawn and Paint",
+    "description": "Full-service tree work, landscaping, painting, junk removal, pressure washing, fence building, gutters, deck building, and remodeling.",
+    "telephone": "[PHONE NUMBER]",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "[SERVICE AREA]"
+    },
+    "openingHours": "Mo-Sa 07:00-18:00",
+    "priceRange": "$$",
+    "areaServed": "[SERVICE AREA]",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tree Work"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Landscaping"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Painting"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Junk Removal"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Pressure Washing"}}
+      ]
+    }
+  }
+  </script>
+
+  <style>
+    /* ============================================================
+       GLOBAL RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f5f3ef;
+      color: #1e1e1e;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    /* ============================================================
+       SITE CONTAINER — CRITICAL: 1800px max-width
+       DO NOT change to any Tailwind built-in container class.
+    ============================================================ */
+    .site-container {
+      max-width: 1800px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    /* ============================================================
+       TYPOGRAPHY
+    ============================================================ */
+    h1, h2, h3, h4, h5 {
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 0.02em;
+    }
+
+    /* ============================================================
+       HERO BACKGROUND
+    ============================================================ */
+    .hero-bg {
+      background-image:
+        linear-gradient(to bottom, rgba(15,35,20,0.72) 0%, rgba(15,35,20,0.55) 60%, rgba(15,35,20,0.80) 100%),
+        url('images/tree-work.webp');
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
+    }
+
+    /* ============================================================
+       STICKY MOBILE CALL BUTTON
+    ============================================================ */
+    .mobile-cta-bar {
+      display: none;
+    }
+    @media (max-width: 767px) {
+      .mobile-cta-bar {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        background-color: #D97545;
+        color: #fff;
+        text-align: center;
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.2rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        padding: 0.9rem 1rem;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        min-height: 56px;
+        box-shadow: 0 -2px 12px rgba(0,0,0,0.25);
+      }
+      body { padding-bottom: 56px; }
+    }
+
+    /* ============================================================
+       NAV
+    ============================================================ */
+    #main-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    #main-nav.scrolled {
+      background-color: #163820;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.35);
+    }
+    #main-nav.top {
+      background-color: rgba(15,35,20,0.65);
+    }
+
+    /* ============================================================
+       HAMBURGER
+    ============================================================ */
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: block; }
+
+    /* ============================================================
+       SERVICE CARDS
+    ============================================================ */
+    .service-card {
+      background: #fff;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.14);
+    }
+    .service-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    /* ============================================================
+       GALLERY GRID
+    ============================================================ */
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 0.5rem;
+      background: #ddd;
+      aspect-ratio: 4/3;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+    .gallery-item:hover img { transform: scale(1.05); }
+
+    /* ============================================================
+       FORM INPUTS
+    ============================================================ */
+    .form-input {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 2px solid #d1d5db;
+      border-radius: 0.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      color: #1e1e1e;
+      background: #fff;
+      transition: border-color 0.2s;
+      min-height: 48px;
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: #1F4E2C;
+    }
+
+    /* ============================================================
+       BENEFIT ICON CIRCLES
+    ============================================================ */
+    .benefit-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background-color: #1F4E2C;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       SECTION DIVIDERS
+    ============================================================ */
+    .section-label {
+      display: inline-block;
+      background-color: #D97545;
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.85rem;
+      border-radius: 2px;
+      margin-bottom: 0.75rem;
+    }
+
+    /* ============================================================
+       MINI SERVICE CARDS (And More section)
+    ============================================================ */
+    .mini-card {
+      background: #fff;
+      border-radius: 0.6rem;
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .mini-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+
+    /* ============================================================
+       CTA BUTTONS
+    ============================================================ */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background-color: #D97545;
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      border-radius: 0.4rem;
+      text-decoration: none;
+      transition: background-color 0.2s, transform 0.1s;
+      min-height: 52px;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover { background-color: #b85e32; transform: translateY(-1px); }
+    .btn-primary:active { transform: translateY(0); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background-color: transparent;
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      border-radius: 0.4rem;
+      text-decoration: none;
+      border: 2px solid #fff;
+      transition: background-color 0.2s, color 0.2s;
+      min-height: 52px;
+      cursor: pointer;
+    }
+    .btn-secondary:hover { background-color: #fff; color: #1F4E2C; }
+
+    .btn-green {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background-color: #1F4E2C;
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.4rem;
+      text-decoration: none;
+      transition: background-color 0.2s;
+      min-height: 48px;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-green:hover { background-color: #163820; }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer a { color: #a3c4a8; text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: #fff; }
+
+    /* ============================================================
+       ACCESSIBILITY: Focus ring
+    ============================================================ */
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 3px solid #D97545;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     STICKY MOBILE CALL NOW BAR
+============================================================ -->
+<a href="tel:[PHONE NUMBER]" class="mobile-cta-bar" aria-label="Call C&amp;G's Tree, Lawn and Paint now">
+  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/>
+  </svg>
+  Call Now — Free Estimate
+</a>
+
+<!-- ============================================================
+     1. STICKY HEADER / NAV
+============================================================ -->
+<header id="main-nav" class="top" role="banner">
+  <div class="site-container">
+    <nav class="flex items-center justify-between py-4" aria-label="Main navigation">
+
+      <!-- Logo / Business Name -->
+      <a href="#hero" class="flex items-center gap-3 no-underline" aria-label="C&amp;G's Tree, Lawn and Paint — Home">
+        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-rust flex-shrink-0" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="white" viewBox="0 0 24 24">
+            <path d="M17 8C8 10 5.9 16.17 3.82 19.5c.9.5 1.95.5 2.68 0C8 18 8 16 12 16c4 0 4 2 5.5 3.5.73.5 1.78.5 2.68 0C18.1 16.17 16 10 17 8z"/>
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17h2v-2h4v2h2v-2.26C17.81 13.47 19 11.38 19 9c0-3.87-3.13-7-7-7z"/>
+          </svg>
+        </div>
+        <div>
+          <span class="block text-white font-heading text-xl leading-tight font-bold tracking-wide">C&amp;G's</span>
+          <span class="block text-white/80 font-body text-xs leading-tight tracking-widest uppercase">Tree · Lawn · Paint</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="hidden md:flex items-center gap-8 list-none m-0 p-0" role="list">
+        <li><a href="#services" class="text-white/90 hover:text-white font-body text-sm font-medium tracking-wide uppercase transition-colors no-underline">Services</a></li>
+        <li><a href="#why-us" class="text-white/90 hover:text-white font-body text-sm font-medium tracking-wide uppercase transition-colors no-underline">About</a></li>
+        <li><a href="#gallery" class="text-white/90 hover:text-white font-body text-sm font-medium tracking-wide uppercase transition-colors no-underline">Gallery</a></li>
+        <li><a href="#quote" class="text-white/90 hover:text-white font-body text-sm font-medium tracking-wide uppercase transition-colors no-underline">Contact</a></li>
+      </ul>
+
+      <!-- Desktop Phone CTA -->
+      <a href="tel:[PHONE NUMBER]" class="hidden md:flex items-center gap-2 text-white font-heading text-lg font-semibold tracking-wide no-underline hover:text-rust transition-colors" aria-label="Call us">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/>
+        </svg>
+        [PHONE NUMBER]
+      </a>
+
+      <!-- Hamburger (mobile) -->
+      <button id="hamburger-btn" class="md:hidden flex flex-col justify-center items-center w-12 h-12 gap-1.5 rounded focus:outline-none" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="block w-6 h-0.5 bg-white transition-all" id="ham-1"></span>
+        <span class="block w-6 h-0.5 bg-white transition-all" id="ham-2"></span>
+        <span class="block w-6 h-0.5 bg-white transition-all" id="ham-3"></span>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+      <ul class="flex flex-col gap-0 pb-4 list-none m-0 p-0" role="list">
+        <li><a href="#services" class="mobile-nav-link block py-3 px-2 text-white/90 hover:text-white font-body text-base font-medium uppercase tracking-wide border-b border-white/10 no-underline">Services</a></li>
+        <li><a href="#why-us" class="mobile-nav-link block py-3 px-2 text-white/90 hover:text-white font-body text-base font-medium uppercase tracking-wide border-b border-white/10 no-underline">About</a></li>
+        <li><a href="#gallery" class="mobile-nav-link block py-3 px-2 text-white/90 hover:text-white font-body text-base font-medium uppercase tracking-wide border-b border-white/10 no-underline">Gallery</a></li>
+        <li><a href="#quote" class="mobile-nav-link block py-3 px-2 text-white/90 hover:text-white font-body text-base font-medium uppercase tracking-wide no-underline">Contact</a></li>
+        <li class="pt-3">
+          <a href="tel:[PHONE NUMBER]" class="btn-primary w-full justify-center" aria-label="Call us now">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/>
+            </svg>
+            Call [PHONE NUMBER]
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     2. HERO SECTION
+============================================================ -->
+<section id="hero" class="hero-bg min-h-screen flex items-center pt-20 pb-16" aria-label="Hero">
+  <div class="site-container">
+    <div class="max-w-3xl">
+      <p class="section-label">Licensed &amp; Insured · Free Estimates · Any Size Job</p>
+      <h1 class="font-heading text-5xl md:text-7xl lg:text-8xl text-white font-bold leading-none mb-4 uppercase tracking-tight">
+        We Do<br /><span class="text-rust">Everything.</span>
+      </h1>
+      <p class="font-body text-white/90 text-xl md:text-2xl mb-8 leading-relaxed max-w-xl">
+        Tree Work &nbsp;·&nbsp; Landscaping &nbsp;·&nbsp; Painting<br class="hidden md:block" />
+        <span class="text-white/70 text-lg">and so much more — one call does it all.</span>
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="tel:[PHONE NUMBER]" class="btn-primary text-lg px-8 py-4" aria-label="Call now for a free estimate">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/>
+          </svg>
+          Call Now
+        </a>
+        <a href="#quote" class="btn-secondary text-lg px-8 py-4">
+          Get Free Estimate
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     3. TOP 3 SERVICES — FEATURED GRID
+============================================================ -->
+<section id="services" class="py-20 bg-offwhite" aria-labelledby="services-heading">
+  <div class="site-container">
+    <div class="text-center mb-14">
+      <p class="section-label">What We Do Best</p>
+      <h2 id="services-heading" class="font-heading text-4xl md:text-5xl text-charcoal font-bold uppercase">Our Core Services</h2>
+      <p class="font-body text-gray-600 text-lg mt-3 max-w-2xl mx-auto">From towering trees to fresh paint — we handle it all with the same level of care and craftsmanship.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Tree Work -->
+      <article class="service-card" aria-label="Tree Work service">
+        <img src="images/tree-work.webp" alt="Professional arborist climbing and trimming a large tree" loading="lazy" />
+        <div class="p-7">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-full bg-forest flex items-center justify-center flex-shrink-0" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+                <path d="M17 8C8 10 5.9 16.17 3.82 19.5c.9.5 1.95.5 2.68 0C8 18 8 16 12 16c4 0 4 2 5.5 3.5.73.5 1.78.5 2.68 0C18.1 16.17 16 10 17 8z"/>
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17h2v-2h4v2h2v-2.26C17.81 13.47 19 11.38 19 9c0-3.87-3.13-7-7-7z"/>
+              </svg>
+            </div>
+            <h3 class="font-heading text-2xl font-bold text-charcoal uppercase">Tree Work</h3>
+          </div>
+          <p class="font-body text-gray-600 text-base mb-4 leading-relaxed">No tree too big, no job too small. Our experienced climbers handle everything safely and efficiently, leaving your property clean.</p>
+          <ul class="font-body text-gray-700 text-sm space-y-1.5 mb-6 list-none p-0">
+            <li class="flex items-center gap-2"><span class="text-rust font-bold">✓</span> Full tree takedowns &amp; removals</li>
+            <li class="flex items-center gap-2"><span class="text-rust font-bold">✓</span> Climbing &amp; high-reach trimming</li>
+            <li class="flex items-center gap-2"><span class="text-rust font-bold">✓</span> Deadwood &amp; hazard removal</li>
+            <li class="flex items-center gap-2"><span class="text-rust font-bold">✓</span> Debris hauling &amp; cleanup</li>
+            <li class="flex items-center gap-2"><span class="text-rust font-bold">✓</span> Any size job</li>
+          </ul>
+          <a href="#quote" class="btn-green w-full text-center">Get a Tree Quote</a>
+        </div>
+      </article>
+
+      <!-- Landscaping -->
+      <article class="service-card" aria-label="Landscaping service">
+        <img src="images/landscaping.jpg" alt="Professional landscaping crew installing sod and shaping garden beds" loading="lazy" />
+        <div class="p-7">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-full bg-forest flex items-center justify-center flex-shrink-0" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+                <path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9-4-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z"/>
+                <path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"/>
+              </svg>
+            </div>
+            <h3 class="font-heading text-2xl font-bold text-charcoal uppercase">Landscaping</h3>
+          </div>
+          <p class="font-body text-gray-600 text-base mb-4 leading-relaxed">Full-service landscaping that transforms your outdoor space. We design, install, and maintain — making your yard the best on the block.</p>
+          <ul class="font-body text-gray-700 text-sm space-y-1.5 mb-6 list-none p-0">
+            <li class="flex items-center gap-2"><span class="text-rust font-bold">✓</span> Lawn installation &amp; sodding</li>
+            <li class="flex items-center gap-2"><span class="text-rust font-bold">✓</span> Garden bed design &amp; planting</li>
+            <li class="flex items-center gap-2"><span class="text-rust font-bold">✓</span> Mulching &amp; edging</li>
+            <li class="flex items-center gap-2"><span class="text-rust font-bold">✓</span> Grading &amp; drainage</li>
+            <li class="flex items-center gap-2"><span class="text-rust font-bold">✓</span> Ongoing maintenance</li>
+          </ul>
+          <a href="#quote" class="btn-green w-full text-center">Get a Landscape Quote</a>
+        </div>
+      </article>
+
+      <!-- Painting -->
+      <article class="service-card" aria-label="Painting service">
+        <img src="images/painting.jpg" alt="Professional painter on scaffolding painting the exterior of a house" loading="lazy" />
+        <div class="p-7">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-full bg-forest flex items-center justify-center flex-shrink-0" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+                <path d="M7 14c-1.66 0-3 1.34-3 3 0 1.31-1.16 2-2 2 .92 1.22 2.49 2 4 2 2.21 0 4-1.79 4-4 0-1.66-1.34-3-3-3zm13.71-9.37l-1.34-1.34a1 1 0 00-1.41 0L9 12.25 11.75 15l8.96-8.96a1 1 0 000-1.41z"/>
+              </svg>
+            </div>
+            <h3 class="font-heading text-2xl font-bold text-charcoal uppercase">Painting</h3>
+          </div>
+          <p class="font-body text-gray-600 text-base mb-4 leading-relaxed">Interior and exterior painting done right. Clean prep, quality materials, and a finish that lasts — on houses, decks, fences, and buildings.</p>
+          <ul class="font-body text-gray-700 text-sm space-y-1.5 mb-6 list-none p-0">
+            <li class="flex items-center gap-2"><span class="text-rust font-bold">✓</span> Interior &amp; exterior painting</li>
+            <li class="flex items-center gap-2"><span class="text-rust font-bold">✓</span> Houses, decks &amp; fences</li>
+            <li class="flex items-center gap-2"><span class="text-rust font-bold">✓</span> Commercial buildings</li>
+            <li class="flex items-center gap-2"><span class="text-rust font-bold">✓</span> Surface prep &amp; priming</li>
+            <li class="flex items-center gap-2"><span class="text-rust font-bold">✓</span> Clean, detail-oriented finish</li>
+          </ul>
+          <a href="#quote" class="btn-green w-full text-center">Get a Paint Quote</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     4. SECONDARY SERVICES — JUNK REMOVAL & PRESSURE WASHING
+============================================================ -->
+<section class="py-16 bg-white" aria-labelledby="secondary-services-heading">
+  <div class="site-container">
+    <div class="text-center mb-12">
+      <p class="section-label">Also Featured</p>
+      <h2 id="secondary-services-heading" class="font-heading text-4xl md:text-5xl text-charcoal font-bold uppercase">More Ways We Help</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1200px] mx-auto">
+
+      <!-- Junk Removal -->
+      <article class="service-card flex flex-col md:flex-row overflow-hidden" aria-label="Junk Removal service">
+        <img src="images/junk-removal.jpg" alt="Truck loaded with junk and debris ready for hauling away" loading="lazy" class="w-full md:w-56 h-52 md:h-auto object-cover flex-shrink-0" />
+        <div class="p-6 flex flex-col justify-center">
+          <h3 class="font-heading text-2xl font-bold text-charcoal uppercase mb-2">Junk Removal</h3>
+          <p class="font-body text-gray-600 text-base mb-4 leading-relaxed">Old furniture, yard waste, construction debris — we haul it all away fast. No job too big or too messy.</p>
+          <ul class="font-body text-gray-700 text-sm space-y-1 mb-5 list-none p-0">
+            <li class="flex items-center gap-2"><span class="text-rust font-bold">✓</span> Furniture &amp; appliances</li>
+            <li class="flex items-center gap-2"><span class="text-rust font-bold">✓</span> Yard &amp; construction debris</li>
+            <li class="flex items-center gap-2"><span class="text-rust font-bold">✓</span> Same-day service available</li>
+          </ul>
+          <a href="#quote" class="btn-green self-start">Get a Quote</a>
+        </div>
+      </article>
+
+      <!-- Pressure Washing -->
+      <article class="service-card flex flex-col md:flex-row overflow-hidden" aria-label="Pressure Washing service">
+        <img src="images/pressure-wash.jpg" alt="Professional pressure washing a residential driveway and house exterior" loading="lazy" class="w-full md:w-56 h-52 md:h-auto object-cover flex-shrink-0" />
+        <div class="p-6 flex flex-col justify-center">
+          <h3 class="font-heading text-2xl font-bold text-charcoal uppercase mb-2">Pressure Washing</h3>
+          <p class="font-body text-gray-600 text-base mb-4 leading-relaxed">Blast away years of grime, mold, and stains. We restore driveways, siding, decks, and fences to like-new condition.</p>
+          <ul class="font-body text-gray-700 text-sm space-y-1 mb-5 list-none p-0">
+            <li class="flex items-center gap-2"><span class="text-rust font-bold">✓</span> Driveways &amp; sidewalks</li>
+            <li class="flex items-center gap-2"><span class="text-rust font-bold">✓</span> House siding &amp; decks</li>
+            <li class="flex items-center gap-2"><span class="text-rust font-bold">✓</span> Commercial &amp; residential</li>
+          </ul>
+          <a href="#quote" class="btn-green self-start">Get a Quote</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     5. "AND MORE" SERVICES SECTION
+============================================================ -->
+<section class="py-16 bg-offwhite" aria-labelledby="more-services-heading">
+  <div class="site-container">
+    <div class="text-center mb-12">
+      <p class="section-label">The Full Picture</p>
+      <h2 id="more-services-heading" class="font-heading text-4xl md:text-5xl text-charcoal font-bold uppercase">And So Much More</h2>
+      <p class="font-body text-gray-600 text-lg mt-3">One company. Endless capabilities.</p>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
+
+      <!-- Fence Building -->
+      <div class="mini-card">
+        <div class="benefit-icon mb-4" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" viewBox="0 0 24 24">
+            <path d="M20 11V4h-3V2h-2v2h-2V2H9v2H7V2H5v2H2v7h2v9h4v-5h2v5h4v-9h2v9h4v-9h2zm-9 7H9v-3h2v3zm6-7h-2V9h2v2z"/>
+          </svg>
+        </div>
+        <h3 class="font-heading text-lg font-bold text-charcoal uppercase mb-1">Fence Building</h3>
+        <p class="font-body text-gray-500 text-sm">Wood, vinyl, privacy, and more.</p>
+      </div>
+
+      <!-- Gutters -->
+      <div class="mini-card">
+        <div class="benefit-icon mb-4" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" viewBox="0 0 24 24">
+            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/>
+            <path d="M7 7h10v2H7zm0 4h7v2H7z"/>
+          </svg>
+        </div>
+        <h3 class="font-heading text-lg font-bold text-charcoal uppercase mb-1">Gutters</h3>
+        <p class="font-body text-gray-500 text-sm">Installation, cleaning &amp; repair.</p>
+      </div>
+
+      <!-- Deck Building -->
+      <div class="mini-card">
+        <div class="benefit-icon mb-4" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" viewBox="0 0 24 24">
+            <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
+          </svg>
+        </div>
+        <h3 class="font-heading text-lg font-bold text-charcoal uppercase mb-1">Deck Building</h3>
+        <p class="font-body text-gray-500 text-sm">Custom decks built to last.</p>
+      </div>
+
+      <!-- Remodeling -->
+      <div class="mini-card">
+        <div class="benefit-icon mb-4" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" viewBox="0 0 24 24">
+            <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+          </svg>
+        </div>
+        <h3 class="font-heading text-lg font-bold text-charcoal uppercase mb-1">Remodeling</h3>
+        <p class="font-body text-gray-500 text-sm">Interior &amp; exterior renovations.</p>
+      </div>
+
+      <!-- Just Ask -->
+      <div class="mini-card bg-forest text-white">
+        <div class="w-16 h-16 rounded-full bg-rust flex items-center justify-center mx-auto mb-4" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" viewBox="0 0 24 24">
+            <path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/>
+          </svg>
+        </div>
+        <h3 class="font-heading text-lg font-bold text-white uppercase mb-1">Don't See It?</h3>
+        <p class="font-body text-white/80 text-sm">Just ask — we probably do it.</p>
+        <a href="#quote" class="inline-block mt-3 text-rust font-heading font-semibold text-sm uppercase tracking-wide hover:text-white transition-colors no-underline">Ask Us →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     6. WHY CHOOSE US
+============================================================ -->
+<section id="why-us" class="py-20 bg-forest" aria-labelledby="why-us-heading">
+  <div class="site-container">
+    <div class="text-center mb-14">
+      <p class="section-label">Why C&amp;G's</p>
+      <h2 id="why-us-heading" class="font-heading text-4xl md:text-5xl text-white font-bold uppercase">Why Choose Us</h2>
+      <p class="font-body text-white/70 text-lg mt-3">The guys who actually show up and do the work.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+      <div class="text-center">
+        <div class="benefit-icon" style="background-color:#D97545;" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="white" viewBox="0 0 24 24">
+            <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
+          </svg>
+        </div>
+        <h3 class="font-heading text-xl font-bold text-white uppercase mb-2">Free Estimates</h3>
+        <p class="font-body text-white/70 text-base">No pressure, no obligation. We come out, assess the job, and give you a straight price.</p>
+      </div>
+
+      <div class="text-center">
+        <div class="benefit-icon" style="background-color:#D97545;" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="white" viewBox="0 0 24 24">
+            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+          </svg>
+        </div>
+        <h3 class="font-heading text-xl font-bold text-white uppercase mb-2">Licensed &amp; Insured</h3>
+        <p class="font-body text-white/70 text-base">Fully licensed and insured for your peace of mind. We protect your property and our crew.</p>
+      </div>
+
+      <div class="text-center">
+        <div class="benefit-icon" style="background-color:#D97545;" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="white" viewBox="0 0 24 24">
+            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/>
+          </svg>
+        </div>
+        <h3 class="font-heading text-xl font-bold text-white uppercase mb-2">Any Size Job</h3>
+        <p class="font-body text-white/70 text-base">One tree or a whole property overhaul — we take on jobs of every scale with the same dedication.</p>
+      </div>
+
+      <div class="text-center">
+        <div class="benefit-icon" style="background-color:#D97545;" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="white" viewBox="0 0 24 24">
+            <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
+          </svg>
+        </div>
+        <h3 class="font-heading text-xl font-bold text-white uppercase mb-2">Fast Response</h3>
+        <p class="font-body text-white/70 text-base">We pick up the phone and show up when we say we will. No runaround, no waiting weeks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     7. GALLERY / BEFORE & AFTER
+     NOTE: Replace placeholder images with real project photos.
+============================================================ -->
+<section id="gallery" class="py-20 bg-white" aria-labelledby="gallery-heading">
+  <div class="site-container">
+    <div class="text-center mb-12">
+      <p class="section-label">Our Work</p>
+      <h2 id="gallery-heading" class="font-heading text-4xl md:text-5xl text-charcoal font-bold uppercase">Project Gallery</h2>
+      <p class="font-body text-gray-500 text-base mt-2 italic"><!-- Replace with real project photos --></p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <!-- Gallery Item 1 — Replace with real project photo -->
+      <div class="gallery-item">
+        <img src="images/tree-work.webp" alt="Tree removal project — large tree takedown completed by C&amp;G's crew" loading="lazy" />
+      </div>
+      <!-- Gallery Item 2 — Replace with real project photo -->
+      <div class="gallery-item">
+        <img src="images/tree-trim.jpg" alt="Tree trimming and pruning — professional arborist at work" loading="lazy" />
+      </div>
+      <!-- Gallery Item 3 — Replace with real project photo -->
+      <div class="gallery-item">
+        <img src="images/landscaping.jpg" alt="Landscaping project — sod installation and garden bed transformation" loading="lazy" />
+      </div>
+      <!-- Gallery Item 4 — Replace with real project photo -->
+      <div class="gallery-item">
+        <img src="images/lawn-mow.jpg" alt="Lawn care and maintenance — lush green lawn after professional service" loading="lazy" />
+      </div>
+      <!-- Gallery Item 5 — Replace with real project photo -->
+      <div class="gallery-item">
+        <img src="images/painting.jpg" alt="Exterior house painting — fresh coat applied to residential home" loading="lazy" />
+      </div>
+      <!-- Gallery Item 6 — Replace with real project photo -->
+      <div class="gallery-item">
+        <img src="images/pressure-wash.jpg" alt="Pressure washing — driveway and siding restored to like-new condition" loading="lazy" />
+      </div>
+    </div>
+
+    <p class="text-center font-body text-gray-400 text-sm mt-6 italic"><!-- Replace all gallery images above with real before/after project photos --></p>
+  </div>
+</section>
+
+<!-- ============================================================
+     8. SERVICE AREA
+============================================================ -->
+<section class="py-14 bg-offwhite" aria-labelledby="service-area-heading">
+  <div class="site-container">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="section-label">Where We Work</p>
+      <h2 id="service-area-heading" class="font-heading text-3xl md:text-4xl text-charcoal font-bold uppercase mb-4">Service Area</h2>
+      <p class="font-body text-gray-600 text-lg leading-relaxed">
+        C&amp;G's Tree, Lawn and Paint proudly serves <strong>[SERVICE AREA]</strong> and the surrounding communities.
+        Whether you're in the city or out in the county, we come to you.
+        Not sure if we cover your area? Give us a call — chances are we do.
+      </p>
+      <a href="tel:[PHONE NUMBER]" class="btn-primary mt-6 inline-flex">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/>
+        </svg>
+        Check Your Area — Call Us
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     9. QUOTE REQUEST FORM
+============================================================ -->
+<section id="quote" class="py-20 bg-white" aria-labelledby="quote-heading">
+  <div class="site-container">
+    <div class="max-w-[900px] mx-auto">
+      <div class="text-center mb-10">
+        <p class="section-label">It's Free</p>
+        <h2 id="quote-heading" class="font-heading text-4xl md:text-5xl text-charcoal font-bold uppercase">Get Your Free Estimate</h2>
+        <p class="font-body text-gray-600 text-lg mt-3">Fill out the form below and we'll get back to you fast — usually same day.</p>
+      </div>
+
+      <form
+        action="#"
+        method="POST"
+        enctype="multipart/form-data"
+        class="bg-offwhite rounded-xl p-8 md:p-12 shadow-md"
+        aria-label="Quote request form"
+        onsubmit="handleFormSubmit(event)"
+      >
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <!-- Name -->
+          <div>
+            <label for="name" class="block font-body font-semibold text-charcoal text-sm mb-2">Full Name <span class="text-rust" aria-label="required">*</span></label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              autocomplete="name"
+              placeholder="John Smith"
+              class="form-input"
+              aria-required="true"
+            />
+          </div>
+
+          <!-- Phone -->
+          <div>
+            <label for="phone" class="block font-body font-semibold text-charcoal text-sm mb-2">Phone Number <span class="text-rust" aria-label="required">*</span></label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              required
+              autocomplete="tel"
+              placeholder="(555) 000-0000"
+              class="form-input"
+              aria-required="true"
+            />
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label for="email" class="block font-body font-semibold text-charcoal text-sm mb-2">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              autocomplete="email"
+              placeholder="john@example.com"
+              class="form-input"
+            />
+          </div>
+
+          <!-- Service Dropdown -->
+          <div>
+            <label for="service" class="block font-body font-semibold text-charcoal text-sm mb-2">Service Needed <span class="text-rust" aria-label="required">*</span></label>
+            <select
+              id="service"
+              name="service"
+              required
+              class="form-input"
+              aria-required="true"
+            >
+              <option value="" disabled selected>Select a service…</option>
+              <option value="tree-work">Tree Work</option>
+              <option value="landscaping">Landscaping</option>
+              <option value="painting">Painting</option>
+              <option value="junk-removal">Junk Removal</option>
+              <option value="pressure-washing">Pressure Washing</option>
+              <option value="fence-building">Fence Building</option>
+              <option value="gutters">Gutters</option>
+              <option value="deck-building">Deck Building</option>
+              <option value="remodeling">Remodeling</option>
+              <option value="other">Other / Not Sure</option>
+            </select>
+          </div>
+
+          <!-- Description -->
+          <div class="md:col-span-2">
+            <label for="description" class="block font-body font-semibold text-charcoal text-sm mb-2">Describe the Job <span class="text-rust" aria-label="required">*</span></label>
+            <textarea
+              id="description"
+              name="description"
+              required
+              rows="5"
+              placeholder="Tell us about your project — size, location on property, any details that help us give you an accurate estimate…"
+              class="form-input resize-y"
+              aria-required="true"
+            ></textarea>
+          </div>
+
+          <!-- Photo Upload -->
+          <div class="md:col-span-2">
+            <label for="photos" class="block font-body font-semibold text-charcoal text-sm mb-2">
+              Photos <span class="text-gray-400 font-normal">(optional — helps us estimate faster)</span>
+            </label>
+            <input
+              type="file"
+              id="photos"
+              name="photos"
+              multiple
+              accept="image/*"
+              class="block w-full text-sm text-gray-600 file:mr-4 file:py-3 file:px-5 file:rounded file:border-0 file:font-heading file:font-semibold file:uppercase file:tracking-wide file:text-sm file:bg-forest file:text-white hover:file:bg-forest-dark cursor-pointer"
+              aria-label="Upload photos of your project (optional)"
+            />
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="mt-8 flex flex-col sm:flex-row items-center gap-4">
+          <button type="submit" class="btn-primary text-lg px-10 py-4 w-full sm:w-auto">
+            Send My Request
+          </button>
+          <p class="font-body text-gray-500 text-sm text-center sm:text-left">
+            Or call us directly: <a href="tel:[PHONE NUMBER]" class="text-forest font-semibold hover:text-rust transition-colors no-underline">[PHONE NUMBER]</a>
+          </p>
+        </div>
+
+        <!-- Success Message (hidden by default) -->
+        <div id="form-success" class="hidden mt-6 p-4 bg-forest text-white rounded-lg font-body text-base" role="alert" aria-live="polite">
+          ✓ Thanks! We received your request and will be in touch soon — usually same day.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     10. FINAL CTA SECTION
+============================================================ -->
+<section class="py-20 bg-charcoal" aria-labelledby="final-cta-heading">
+  <div class="site-container text-center">
+    <p class="section-label">Let's Get Started</p>
+    <h2 id="final-cta-heading" class="font-heading text-4xl md:text-6xl text-white font-bold uppercase mb-4">Ready to Get Started?</h2>
+    <p class="font-body text-white/70 text-xl mb-8 max-w-2xl mx-auto">
+      One call. One crew. Every job done right. Give us a ring or fill out the form — free estimates, no pressure.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <a href="tel:[PHONE NUMBER]" class="btn-primary text-xl px-10 py-5" aria-label="Call C&amp;G's now">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/>
+        </svg>
+        Call [PHONE NUMBER]
+      </a>
+      <a href="#quote" class="btn-secondary text-xl px-10 py-5">
+        Get Free Estimate
+      </a>
+    </div>
+    <p class="font-body text-white/40 text-sm mt-8">Licensed &amp; Insured &nbsp;·&nbsp; Free Estimates &nbsp;·&nbsp; Any Size Job &nbsp;·&nbsp; [SERVICE AREA]</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     11. FOOTER
+============================================================ -->
+<footer class="bg-forest-dark py-14" role="contentinfo" aria-label="Site footer">
+  <div class="site-container">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+
+      <!-- Brand -->
+      <div>
+        <h3 class="font-heading text-xl text-white font-bold uppercase mb-3">C&amp;G's Tree, Lawn &amp; Paint</h3>
+        <p class="font-body text-white/60 text-sm leading-relaxed mb-4">Your local, reliable crew for tree work, landscaping, painting, and everything in between.</p>
+        <a href="tel:[PHONE NUMBER]" class="font-heading text-rust text-lg font-semibold hover:text-white transition-colors no-underline">[PHONE NUMBER]</a><br />
+        <a href="mailto:[EMAIL ADDRESS]" class="font-body text-white/60 text-sm hover:text-white transition-colors no-underline">[EMAIL ADDRESS]</a>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h4 class="font-heading text-base text-white font-semibold uppercase mb-3 tracking-wide">Services</h4>
+        <ul class="list-none p-0 m-0 space-y-1.5">
+          <li><a href="#services" class="font-body text-sm">Tree Work</a></li>
+          <li><a href="#services" class="font-body text-sm">Landscaping</a></li>
+          <li><a href="#services" class="font-body text-sm">Painting</a></li>
+          <li><a href="#services" class="font-body text-sm">Junk Removal</a></li>
+          <li><a href="#services" class="font-body text-sm">Pressure Washing</a></li>
+          <li><a href="#services" class="font-body text-sm">Fence Building</a></li>
+          <li><a href="#services" class="font-body text-sm">Gutters &amp; Decks</a></li>
+          <li><a href="#services" class="font-body text-sm">Remodeling</a></li>
+        </ul>
+      </div>
+
+      <!-- Service Area -->
+      <div>
+        <h4 class="font-heading text-base text-white font-semibold uppercase mb-3 tracking-wide">Service Area</h4>
+        <p class="font-body text-white/60 text-sm leading-relaxed">[SERVICE AREA] and surrounding communities. Call to confirm your location.</p>
+      </div>
+
+      <!-- Hours -->
+      <div>
+        <h4 class="font-heading text-base text-white font-semibold uppercase mb-3 tracking-wide">Hours</h4>
+        <ul class="list-none p-0 m-0 space-y-1.5 font-body text-white/60 text-sm">
+          <li>Monday – Friday: 7am – 6pm</li>
+          <li>Saturday: 8am – 4pm</li>
+          <li>Sunday: By appointment</li>
+        </ul>
+        <a href="#quote" class="btn-primary mt-5 inline-flex text-sm px-5 py-2.5">Get Free Estimate</a>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3">
+      <p class="font-body text-white/40 text-xs">&copy; <span id="year"></span> C&amp;G's Tree, Lawn and Paint. All rights reserved.</p>
+      <p class="font-body text-white/40 text-xs">Licensed &amp; Insured &nbsp;·&nbsp; [SERVICE AREA]</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+  // ── Dynamic year in footer ──────────────────────────────────
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ── Nav scroll behavior ─────────────────────────────────────
+  const nav = document.getElementById('main-nav');
+  function updateNav() {
+    if (window.scrollY > 60) {
+      nav.classList.remove('top');
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+      nav.classList.add('top');
+    }
+  }
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+
+  // ── Hamburger menu ──────────────────────────────────────────
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mobileMenu   = document.getElementById('mobile-menu');
+  const ham1 = document.getElementById('ham-1');
+  const ham2 = document.getElementById('ham-2');
+  const ham3 = document.getElementById('ham-3');
+
+  hamburgerBtn.addEventListener('click', function () {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburgerBtn.setAttribute('aria-expanded', isOpen);
+    if (isOpen) {
+      ham1.style.transform = 'translateY(8px) rotate(45deg)';
+      ham2.style.opacity = '0';
+      ham3.style.transform = 'translateY(-8px) rotate(-45deg)';
+    } else {
+      ham1.style.transform = '';
+      ham2.style.opacity = '';
+      ham3.style.transform = '';
+    }
+  });
+
+  // Close mobile menu on nav link click
+  document.querySelectorAll('.mobile-nav-link').forEach(function(link) {
+    link.addEventListener('click', function() {
+      mobileMenu.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      ham1.style.transform = '';
+      ham2.style.opacity = '';
+      ham3.style.transform = '';
+    });
+  });
+
+  // ── Form submit handler ─────────────────────────────────────
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    // TODO: Replace with real form endpoint (e.g., Formspree, Netlify Forms, custom backend)
+    const successMsg = document.getElementById('form-success');
+    successMsg.classList.remove('hidden');
+    successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    e.target.reset();
+  }
+
+  // ── Smooth scroll for anchor links ─────────────────────────
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const offset = 80; // nav height
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
